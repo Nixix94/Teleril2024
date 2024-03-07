@@ -23,4 +23,33 @@ plot(flowers, insects)
 # pch=10 point character decido che tipo di simboloo ritrovo nel plot
 # cex=2 invece è per decidere la grandezza del punto (0.5 per più piccolo), si usa . anzichè , per i decimali
 # clo= invece per il colore 
+# ricordare di non usare la rainbow color palette
+
+# installazione di pacchetti, questi mi servono per implementare le funzionalità di R o altri software 
+# tantissimi li si trova all'interno del sito CRAN, con descrizioni della funzione, vignettes, chi ha lavorato alla creazione della funzione
+
+# installazione paccetti in nuovo script
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
