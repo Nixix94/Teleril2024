@@ -5,4 +5,11 @@ install.packages("terra")
 
 # dopo averlo installato il pacchetto deve esser richiamato attraverso la funzione library
 
-#prossima settimana il prof inizierà a caricare i codici delle lezioni prima delle stesse
+# pacchetto imageRy pacchetto creato su misura per agevolare la didattica, presente all'interno di Github
+# funzione "devtools" mi permette di usare la funzione per scaricare i pacchetti da Github
+# install.github
+# imageRy
+
+# per indicare da dove arriva una funzione metto pacchetto di provenienza :: funzione
+devtools::install.packages("devtools")
+install.github("imageRy")
