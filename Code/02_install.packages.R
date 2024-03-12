@@ -13,3 +13,5 @@ install.packages("terra")
 # per indicare da dove arriva una funzione metto pacchetto di provenienza :: funzione
 devtools::install.packages("devtools")
 install.github("imageRy")
+
+# i pachetti che si usano all'interno del codice vanno messi tutti in alto!!!
