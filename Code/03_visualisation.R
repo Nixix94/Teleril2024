@@ -1,3 +1,5 @@
+# https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
+
 # visuallizzazione dei dati satellitari in R attraverso imageRy
 library(imageRy)
 library(terra)
@@ -30,9 +32,8 @@ plot(b2, col=clg)
 clg100 <- colorRampPalette(c("black", "grey", "white"))(100)
 plot(b2, col=clg100)
 
-clcyan <- colorRampPalette(c("magenta", "cyan4", "cyan"))(100)
-plot(b2, col=clcyan)
-
+clch <- colorRampPalette(c("magenta", "cyan4", "cyan", "chartreuse"))(100)
+plot(b2, col=clch)
 # attenzione che la roccia in parte riflette la banda del blu, come l'acqua
 # la vegetazione invece assorbe banda blu e rosso per la fotosintesi e riflette il verde
 
@@ -43,5 +44,26 @@ b4 <- im.import("sentinel.dolomites.b4.tif")
 # banda 4 banda del rosso
 b8 <- im.import("sentinel.dolomites.b8.tif")
 # banda 8 banda del vicino infrarosso
-plot(b8, col=clcyan)
+plot(b8, col=clch)
 # le immagini sono di maggiore dettaglio, in quanto è maggiore la differenza dell'energia assorbita/riflessa
+
+# creare multiframe dove inserirò tutte le immagini attraverso funzione par(mf)
+# ciò mi consentirà di formare un telazio 2x2 dove collocare le bande
+# elementi array, di uno stesso vettore, allora devo concatenarli
+par(mfrow=c(2, 2))
+plot(b2, col=clch)
+plot(b3, col=clch)
+plot(b4, col=clch)
+plot(b8, col=clch)
+
+# Esercizio: creare un multiframe di una riga e 4 colonne
+
+# stack images <- mi serve per archiviare le immagini satellitari tutte insieme
+# le andiamo a considerare come elementi di un array, ottenendo così una singola immagine satellitare composta dai singoli elementi
+stacksent <- c(b2, b3, b4, b8)
+dev.off() 
+# mi serve per resettare, cancellare il device grafico precedente
+plot(stacksent, col=clch)
+# per poter selezionare solo un singolo elemento posso farlo con [], questo mi seleziona la colonna
+# mi servono due parentesi [[]], in quanto stiamo lavorando all'interno di una matrice (due dimensioni)
+plot(stacksent[[4]], col=clch)
