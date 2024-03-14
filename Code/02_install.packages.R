@@ -2,6 +2,7 @@
 
 install.packages("terra")
 # importante usare "", solitamente impostata di default il sito del CRAN
+# R è un software case sensitive, nel senso che devo fare attenzione a come scrivo le funzione: punteggiatura, maiuscole
 library(terra)
 # dopo averlo installato il pacchetto deve esser richiamato attraverso la funzione library
 
