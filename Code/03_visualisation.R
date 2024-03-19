@@ -1,4 +1,5 @@
 # https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial
+# 10 metri di risoluzione spaziale
 
 # visuallizzazione dei dati satellitari in R attraverso imageRy
 library(imageRy)
@@ -48,7 +49,7 @@ plot(b8, col=clch)
 # le immagini sono di maggiore dettaglio, in quanto è maggiore la differenza dell'energia assorbita/riflessa
 
 # creare multiframe dove inserirò tutte le immagini attraverso funzione par(mf)
-# ciò mi consentirà di formare un telazio 2x2 dove collocare le bande
+# ciò mi consentirà di formare un telaio 2x2 dove collocare le bande
 # elementi array, di uno stesso vettore, allora devo concatenarli
 par(mfrow=c(2, 2))
 plot(b2, col=clch)
@@ -58,7 +59,7 @@ plot(b8, col=clch)
 
 # Esercizio: creare un multiframe di una riga e 4 colonne
 
-# stack images <- mi serve per archiviare le immagini satellitari tutte insieme
+# stack images <- mi serve per archiviare le immagini satellitari tutte insieme, creando così una immagine multispettrale
 # le andiamo a considerare come elementi di un array, ottenendo così una singola immagine satellitare composta dai singoli elementi
 stacksent <- c(b2, b3, b4, b8)
 dev.off() 
@@ -67,3 +68,21 @@ plot(stacksent, col=clch)
 # per poter selezionare solo un singolo elemento posso farlo con [], questo mi seleziona la colonna
 # mi servono due parentesi [[]], in quanto stiamo lavorando all'interno di una matrice (due dimensioni)
 plot(stacksent[[4]], col=clch)
+
+# RGB plotting - organizzo le bande dandone il nome, così da poterle riconoscere
+# stacksent[[1]] = b2 = blue
+# stacksent[[2]] = b3 = green
+# stacksent[[3]] = b4 = red
+# stacksent[[4]] = b8 = nir
+
+# plotRGB con imageRy attraverso funzione im.plotRGB() con attributi il nome dell'immagine e le componenti dei colori scelti
+# im.plotRGB(stacksent, r=3, g=2, b=1) <- assocciamo ad ogni banda il proprio colore, l'ordine dei colori è standard
+im.plotRGB(stacksent, 3, 2, 1)
+# con l'immagine con i colori RGB è difficile poter distinguere i dettagli
+# importante considerare la riflettanza dell'infrarosso dei vari oggetti, ognuno ne ha uno proprio
+im.plotRGB(stacksent, 4, 2, 1)
+
+par(mfrow=c(1,2))
+im.plotRGB(stacksent, 3, 2, 1)
+im.plotRGB(stacksent, 4, 2, 1)
+dev.off()
