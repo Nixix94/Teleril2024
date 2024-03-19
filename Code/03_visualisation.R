@@ -86,3 +86,36 @@ par(mfrow=c(1,2))
 im.plotRGB(stacksent, 3, 2, 1)
 im.plotRGB(stacksent, 4, 2, 1)
 dev.off()
+# se sposto a caso le bande mantenendo il 4 il risultato non cambia
+# governa la banda che è meno correlata alle altre ed aggiunge molta più informazione, ovvero il vicino infrarosso
+par(mfrow=c(1,3))
+im.plotRGB(stacksent, 3, 2, 1)
+im.plotRGB(stacksent, 4, 2, 1) # nir on r
+im.plotRGB(stacksent, 4, 3, 2)
+dev.off()
+
+# composizione con nir al posto del green
+im.plotRGB(stacksent, 3, 4, 2)
+
+# composizione con nir al posto del  blue
+im.plotRGB(stacksent, 3, 2, 4)
+
+# esercizio: creare un multiframe con le immagini scelte
+par(mfrow=c(2,2))
+im.plotRGB(stacksent, 3, 2, 1) #RGB
+im.plotRGB(stacksent, 4, 2, 1) #nir on r
+im.plotRGB(stacksent, 3, 4, 2) #nir on g
+im.plotRGB(stacksent, 3, 2, 4) #nir on b
+
+# correlazione (n * n-1) / 2
+# con R funzione "pairs" con argomento il dato selezionato
+# vogliamo dimostrare che le bande RGB sono molto correlate tra loro, a differenza del nir
+pairs(stacksent)
+# grafico ci fa vedere la correlazione di ogni pixel - indice di correlazione di pilson (?)
+# si vede che l'infrarosso ha una tipica conformazione a triangolo che solo in parte è correlata con RGB
+
+# info riguardo un oggetto basta digitarne il nome
+b2
+# moltiplico le dimensioni dell'immagine
+# ncell() serve per calcolare la quantità di pixel
+
