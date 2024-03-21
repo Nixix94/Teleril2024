@@ -118,4 +118,9 @@ pairs(stacksent)
 b2
 # moltiplico le dimensioni dell'immagine
 # ncell() serve per calcolare la quantità di pixel
-
+# sistema di riferimento: geoide ed elissoide e scostamento geoidico
+# datum: elissoide di Heiford (?), posizionato in un punto dove avrà minor errore rispetto alla misura realte
+# misure che otteniamo dipendono dall'elissoide che usiamo
+# elissoidi diversi ottengo misure differenti perchè cambia il sistema di riferimento, ovvero il datum
+# per calcolare la latitudine ci si riferisce all'angolo che si forma tra il piano equatoriale e la normale passante per il punto d'interesse, che nell'elissoide non cade nel centro
+# 
