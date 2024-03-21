@@ -123,4 +123,5 @@ b2
 # misure che otteniamo dipendono dall'elissoide che usiamo
 # elissoidi diversi ottengo misure differenti perchè cambia il sistema di riferimento, ovvero il datum
 # per calcolare la latitudine ci si riferisce all'angolo che si forma tra il piano equatoriale e la normale passante per il punto d'interesse, che nell'elissoide non cade nel centro
-# 
+# cambiare sistema di riferimento attraverso la trasformazione a 6 paramentri dove si lavora sul datum in entrata, traslandolo e ruotandolo affichè combaci con l'altro
+
