@@ -1,6 +1,6 @@
 # indici spettrali
 
-# riflettanza divisione tra energia riflessa al numeratore e incidenza al denominatore
+# riflettanza divisione tra energia riflessa al numeratore ed energia d'incidenza al denominatore, con range 0 e 1
 # indice vegetazionale di riflettanza si ottiene con la differenza tra i valori di riflettanza in nir con quella della banda del rosso
 # DVI
 # la riflettanza dipende, oltre che dalla pianta in sè (firma spettrale), anche dallo stato di salute e dal tipo di copertura
@@ -27,8 +27,33 @@ im.plotRGB(m1992, 2, 3, 1)
 # l'acqua diventa nera se c'è il nir tra i falsecolor, in quanto assorbe completamete il nir
 # altri colori possono esser determinati da vegetazione algale o sedimenti
 
+m2006 <- im.import("matogrosso_ast_2006209_lrg.jpg")
 
+par(mfrow=c(1,2))
+im.plotRGB(m1992, 1, 2, 3)
+im.plotRGB(m2006, 1, 2, 3)
+dev.off()
 
+im.plotRGB(m2006, 2, 1, 3) #nir on green
+im.plotRGB(m2006, 2, 3, 1) #nir on blue
+
+par(mfrow=c(2,3))
+im.plotRGB(m1992, 1, 2, 3) #nir on red
+im.plotRGB(m1992, 2, 1, 3) #nir on green
+im.plotRGB(m1992, 2, 3, 1) #nir on blue
+im.plotRGB(m2006, 1, 2, 3) #nir on red
+im.plotRGB(m2006, 2, 1, 3) #nir on green
+im.plotRGB(m2006, 2, 3, 1) #nir on blue
+dev.off()
+
+# valori di riflettanza da 0 a 1, troppe informazioni serve semplificare e poter trasmettere un messaggio complesso -> sistema binario di comunicazione
+# approsimiamo tutti i valori per l'intero trasformiamo tutti i valori di riflettanza in 8bit ovvero tra 0 a 256 <- migliore getione dell'immagine
+# esa con 16bit ovvero da 0 a 65536 <- però questo operativo dal 2018
+# risoluzione spaziale - dimensione del pixel
+# risoluzione spettrale - quante bande ho e su cui posso operare
+# risoluzione radiometrica - quanti valori di bit sto usando
+
+# 3, 13, 1113, 3113, 132113, ...... trovo l'ultimo numero
 
 
 
