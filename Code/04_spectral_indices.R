@@ -5,7 +5,7 @@
 # DVI
 # la riflettanza dipende, oltre che dalla pianta in sè (firma spettrale), anche dallo stato di salute e dal tipo di copertura
 # rededge ultima parte vicino al rosso ed indica quanto una pianta è sana, < è la pendenza migliore è lo stato di salute
-
+# nir riflesso dal mesofillo
 library(terra)
 library(imageRy)
 
@@ -53,7 +53,21 @@ dev.off()
 # risoluzione spettrale - quante bande ho e su cui posso operare
 # risoluzione radiometrica - quanti valori di bit sto usando
 
-# 3, 13, 1113, 3113, 132113, ...... trovo l'ultimo numero
+# 3, 13, 1113, 3113, 132113, ...... trovo l'ultimo numero 1113122113
+
+# calcolo di indice di vegetazione DVI (difference vegetation index)
+# immagine a 8bit, dunque con un range tra -255 e 255 - mi dice che questo indice è forstemtente influenzato dalla lunghezza radiometrica
+dvi1992 = m1992[[1]] - m1992[[2]]
+
+# altrimenti cercando in m1992 lo faccio direttamente con i nomi delle bande associandoli con il $, presenti nei metadati
+
+# plot del DVI
+cl <- colorRampPalette(c("darkblue", "yellow", "red", "black")) (100)
+plot(dvi1992, col=cl)
+
+# plot DVI 2006
+dvi2006 = m2006[[1]] - m2006[[2]]
+plot(dvi2006, col=cl)
 
 
 
