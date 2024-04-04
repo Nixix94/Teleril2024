@@ -69,6 +69,27 @@ plot(dvi1992, col=cl)
 dvi2006 = m2006[[1]] - m2006[[2]]
 plot(dvi2006, col=cl)
 
+# par
+par(mfrow=c(1,2))
+plot(dvi1992, col=cl)
+plot(dvi2006, col=cl)
+dev.off()
+
+# normalizzazione = ndvi
+# nir-r/nir+r 
+# range tra 1 e -1, con nir max = 1 con nir nullo = -1
+ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
+ndvi2006 = dvi2006 / (m2006[[1]] + m2006[[2]])
+
+# qual'è il problema con le palette? perchè hai usato l'ndvi anziche il dvi
+# par
+par(mfrow=c(1,2))
+plot(ndvi1992, col=cl)
+plot(ndvi2006, col=cl)
+dev.off()
+
+
+
 
 
 
