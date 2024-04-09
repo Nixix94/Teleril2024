@@ -39,26 +39,49 @@ m2006c <- im.classify(m2006, num.clusters=2)
 # cluster2=human
 
 # vogliamo calcolare il numero di pixel (frequenza) delle due classi per poi calcolare le percentuali delle varie classi
+# Calcolare la frequenza 1992
+f1992 <- freq(m1992c)
+# proporzione sarà la frequenza in rapporto al totale
+# ncell calcola il totale dei pixel dell'immagine
+# totale pixel immagine
+tot1992 <- ncell(m1992c)
+# Proporzione clusters
+prop1992 = f1992 / tot1992
+# Percentuale clusters
+perc1992 = prop1992*100
+perc1992
+# Repeat for 2006
+f2006 <- freq(m2006c)
+tot2006 <- ncell(m2006c)
+prop2006 = f2006 / tot2006
+perc2006 = prop2006*100
+perc2006
 
+# Costruire dataset e creazione grafici
+# funzione "data.frame" crea un dataframe 
+class <- c("human, forest")
+y1992 <- c(87,17)
+y2006 <- c(55,45)
 
+tabout <- data.frame(class, y1992, y2006)
+tabout
 
+# plotting the output with ggplot2
+ggplot(tabout, aes(x=class, y=p1992, color=class)) + geom_bar(stat="identity", fill="white")
+ggplot(tabout, aes(x=class, y=p2006, color=class)) + geom_bar(stat="identity", fill="white")
+# geom_bar possiamo estrarre valori statistici, in questo caso usiamo identity perchè il valore ce lo abbiamo già, mentre fill per decidere il colore
 
+# patchwork
+p1 <- ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white")
+p2 <- ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white")
+p1 + p2
+# assegnare ai grafici un oggetto e poi li somma
+# Attenzione alla scala delle coordinate dei due grafici per una corretta comunicazione dei risultati
 
+# varying axis and using lines - for correcting scale
+p1 <- ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p1 + p2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# ylim è una funzione vera e propria, per assegrare scale scelte sulla coordinata y
+# importante abbiano lo stasso range di scala
