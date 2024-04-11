@@ -77,6 +77,7 @@ p2 <- ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identi
 p1 + p2
 # assegnare ai grafici un oggetto e poi li somma
 # Attenzione alla scala delle coordinate dei due grafici per una corretta comunicazione dei risultati
+# geom.line per un grafico a linee
 
 # varying axis and using lines - for correcting scale
 p1 <- ggplot(tabout, aes(x=class, y=y1992, color=class)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
