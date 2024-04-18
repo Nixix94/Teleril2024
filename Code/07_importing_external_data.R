@@ -2,6 +2,10 @@
 
 library(terra)
 library(imageRy)
+# install.packages("RNetCDF")
+library(RNetCDF)
+# per poter leggere le immagini scaricate da Copernicus
+
 
 # selezionare la working directory, cartella sulla quale si sta lavorando:
 # setwd("youtpath") funzione con argomento il percorso della cartella
@@ -27,14 +31,16 @@ plotRGB(costa, 1, 2, 3)
 plotRGB(costa, 3, 1, 2)
 plotRGB(costa, 2, 1, 3)
 
+# importazione del dato scaricato da Copernicus
+# pacchetto terra si integra con pacchetto RNetCDF
+ice <- rast("c_gls_SCE500_202404040000_CEURO_MODIS_V1.0.1.nc")
+ice
+plot(ice)
 
-
-
-
-
-
-
-
+# fare un crop, ritaglio
+ext <- c(10, 20, 45, 50) # decido l'estensione del ritaglio
+icecrop <- crop(ice, ext) # uso funzione crop
+plot(icecrop) # risultato
 
 
 
