@@ -61,3 +61,4 @@ pairs(sent)
 # ho la correlazione tra le varie bande
 # in questo caso ho un'elevata correlazione tra rosso e verde
 # posso unsare la componente principale per semplificare i calcoli
+# anzichè scegliere soggettivamente il nir - 
