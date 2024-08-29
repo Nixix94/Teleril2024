@@ -2,7 +2,7 @@
 # creare training site <- siti di prova per insegnare all'algoritmo come riconoscele le classi
 # individuare cluster (insieme di oggetti, classi) di pixel presi in modo casuale
 # nel caso di un pixel non sia presente nei cluster, l'algoritmo andrà a calcolare la media dei punti nel cluster e poi la distanza a questo punto
-# k-means
+# k-means clustering è un algoritmo che divide un insieme di oggetti in k gruppi sulla base dei loro attributi
 # immagine originale - cluster - immagine classificata
 # posso calcolare pixel classe 1 e 2
 
