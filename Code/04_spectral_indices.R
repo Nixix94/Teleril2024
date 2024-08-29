@@ -2,7 +2,18 @@
 
 # riflettanza divisione tra energia riflessa al numeratore ed energia d'incidenza al denominatore, con range 0 e 1
 # indice vegetazionale di riflettanza si ottiene con la differenza tra i valori di riflettanza in nir con quella della banda del rosso
-# DVI
+# DVI (Difference Vegetation Index)
+# Il DVI è un indice che si calcola sottraendo la banda del rosso alla banda del NIR. 
+# In seguito deve essere normalizzato a NDVI per renderlo confrontabile con altri valori dello stesso indice.
+# Nelle piante sane il NIR è riflesso molto e il rosso è assorbito quasi tutto dalle cellule a palizzata del mesofillo foliare 
+#(solitamente in posizione verticale di massima riflettanza, una accanto all'altra). 
+#Quando la pianta è stressata o sta morendo, il mesofillo collassa e le sue cellule si dispongono obliquamente,
+# riflettendo di meno l'infrarosso e assorbendo meno rosso. 
+# Nelle rispettive bande quindi, una pianta sana rifletterà più infrarosso e meno rosso (perchè viene assorbito) 
+# mentre una pianta sotto stress o morta rifletterà meno infrarosso e più rosso. 
+# Passando da una pianta sana a una sttressata/morta, i valori di riflettanza nell'infrarosso diminuiscono, mentre quelli nel rosso aumentano. 
+# Su immagini satellitari dello stesso posto in anni differenti si può quindi vedere come variano questi indici per ogni pixel 
+# dell'immagine, calcolando i due indici e confrontando le loro variazioni.
 # la riflettanza dipende, oltre che dalla pianta in sè (firma spettrale), anche dallo stato di salute e dal tipo di copertura
 # rededge ultima parte vicino al rosso ed indica quanto una pianta è sana, < è la pendenza migliore è lo stato di salute
 # nir riflesso dal mesofillo
@@ -89,10 +100,3 @@ par(mfrow=c(1,2))
 plot(ndvi1992, col=cl)
 plot(ndvi2006, col=cl)
 dev.off()
-
-
-
-
-
-
-
