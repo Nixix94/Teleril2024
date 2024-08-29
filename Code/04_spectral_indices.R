@@ -75,7 +75,9 @@ plot(dvi1992, col=cl)
 plot(dvi2006, col=cl)
 dev.off()
 
-# normalizzazione = ndvi
+# normalizzazione = ndvi: 
+# L'indice di differenza di vegetazione normalizzato è un indice semplice ma efficace per quantificare la vegetazione verde. 
+# È una misura dello stato di salute della vegetazione basata su come le piante riflettono la luce a determinate lunghezze d'onda.
 # nir-r/nir+r 
 # range tra 1 e -1, con nir max = 1 con nir nullo = -1
 ndvi1992 = dvi1992 / (m1992[[1]] + m1992[[2]])
